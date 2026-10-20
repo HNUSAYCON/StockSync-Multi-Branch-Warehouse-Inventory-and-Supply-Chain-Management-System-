@@ -20,8 +20,18 @@ supabase/
 tests/
   test_scenarios.sql        32 automated checks (runs inside a rollback)
   concurrency_demo.sql      two-tab row-locking demo for the defense
-frontend/js/api.js          ready-made JS functions for every backend operation
+frontend/
+  index.html                login page (sends each role to its own page)
+  admin.html / manager.html / staff.html   role dashboards
+  css/app.css               shared styles (on top of Bootstrap 5)
+  js/config.js              YOUR Supabase URL + anon key go here
+  js/api.js                 every call to the backend (reads + stored functions)
+  js/ui.js                  tables, badges, pop-up forms, toasts
+  js/layout.js              login check, role redirect, side menu
+  js/sections/*.js          one file per feature (stock, orders, transfers, ...)
 ```
+
+Run the frontend with VS Code's **Live Server** (right-click `index.html` → Open with Live Server). Opening the file by double-clicking won't work, because browsers block module scripts from `file://`.
 
 ## Setup (about 15 minutes)
 

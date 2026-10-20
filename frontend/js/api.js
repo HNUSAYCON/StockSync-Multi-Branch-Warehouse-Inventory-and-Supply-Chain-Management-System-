@@ -1,28 +1,25 @@
 // =====================================================================
-// StockSync | Frontend connection to the Supabase backend
-// Use in your HTML pages with:  <script type="module" src="js/api.js"></script>
-// or import functions from other modules:  import { login, getStock } from './api.js';
+// StockSync | Data layer: every call to the Supabase backend lives here.
+// Pages never talk to Supabase directly; they call these functions.
 //
-// Get these two values from Supabase: Project Settings -> API.
-// The ANON key is SAFE to put here (RLS protects the data).
-// NEVER put the service_role key in frontend code or on GitHub.
+// Reading:  supabase.from('table').select(...)  -> RLS filters the rows
+// Writing:  supabase.rpc('function_name', {...}) -> stored function runs
+//           as ONE transaction and checks permissions inside the database
 // =====================================================================
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-const SUPABASE_URL      = 'https://ulyxltddmhduznvrfkvg.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_yQUwv4wY0w-59XXNnm4LnQ_1vqoj3qL';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Every call returns data, or throws an Error with the database's message
-// (e.g. "Insufficient stock for item 4 ..."), so you can show it in an alert.
+// (e.g. "Insufficient stock for item 4 ..."), so pages can show it.
 async function run(promise) {
   const { data, error } = await promise;
   if (error) throw new Error(error.message);
   return data;
 }
 
-// ---------------------------------------------------------------- Auth
+// ------------------------------------------------------------------ Auth
 export async function login(email, password) {
   await run(supabase.auth.signInWithPassword({ email, password }));
   const me = await getMyProfile();
@@ -30,7 +27,7 @@ export async function login(email, password) {
     await logout();
     throw new Error('Your account is not activated yet. Ask an administrator.');
   }
-  return me; // { user_id, email, role, is_active, ... } -> use role to pick the dashboard
+  return me; // { user_id, email, role, is_active, ... }
 }
 
 export async function logout() {
@@ -38,56 +35,89 @@ export async function logout() {
 }
 
 export async function getMyProfile() {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  return run(supabase.from('users').select('*').eq('user_id', user.id).maybeSingle());
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return null;
+  return run(supabase.from('users').select('*').eq('user_id', session.user.id).maybeSingle());
 }
 
-// ---------------------------------------------------------------- Reading data
-// RLS automatically limits every query to what the logged-in user may see.
-export const getDashboard   = () => run(supabase.from('v_warehouse_dashboard').select('*'));
-export const getLowStock    = () => run(supabase.from('v_low_stock').select('*').order('shortfall', { ascending: false }));
-export const getWarehouses  = () => run(supabase.from('warehouses').select('*').order('name'));
-export const getSuppliers   = () => run(supabase.from('suppliers').select('*').order('name'));
-export const getCategories  = () => run(supabase.from('categories').select('*').order('name'));
-export const getItems       = () => run(supabase.from('items').select('*, categories(name)').order('name'));
-export const searchItems    = (text) => run(supabase.rpc('search_items', { p_query: text }));
+// My employee profile + my active warehouse assignments
+export async function getMyEmployee(userId) {
+  return run(supabase.from('employees')
+    .select('*, employee_assignments(assignment_id, warehouse_id, assigned_role, status, warehouses(name))')
+    .eq('user_id', userId)
+    .maybeSingle());
+}
+
+// ------------------------------------------------------------------ Reading data
+export const getDashboard  = () => run(supabase.from('v_warehouse_dashboard').select('*').order('warehouse_name'));
+export const getLowStock   = () => run(supabase.from('v_low_stock').select('*').order('shortfall', { ascending: false }));
+export const getWarehouses = () => run(supabase.from('warehouses').select('*').order('name'));
+export const getSuppliers  = () => run(supabase.from('suppliers').select('*').order('name'));
+export const getCategories = () => run(supabase.from('categories').select('*').order('name'));
+export const getItems      = () => run(supabase.from('items').select('*, categories(name)').order('name'));
+export const searchItems   = (text) => run(supabase.rpc('search_items', { p_query: text }));
 
 export function getStock(warehouseId = null) {
-  let q = supabase.from('v_stock_levels').select('*').order('item_name');
+  let q = supabase.from('v_stock_levels').select('*').order('warehouse_name').order('item_name');
   if (warehouseId) q = q.eq('warehouse_id', warehouseId);
   return run(q);
 }
 
-export function getMovements(warehouseId = null, limit = 100) {
-  let q = supabase.from('v_movement_history').select('*').order('created_at', { ascending: false }).limit(limit);
+export function getMovements(warehouseId = null, limit = 300) {
+  let q = supabase.from('v_movement_history').select('*').order('movement_id', { ascending: false }).limit(limit);
   if (warehouseId) q = q.eq('warehouse_id', warehouseId);
   return run(q);
 }
 
-export function getPurchaseOrders(status = null) {
+// statuses: null = all, or an array like ['ordered', 'partially_received']
+export function getPurchaseOrders(statuses = null) {
   let q = supabase.from('purchase_orders')
-    .select('*, suppliers(name), warehouses(name), purchase_order_items(*, items(sku, name))')
-    .order('ordered_at', { ascending: false });
-  if (status) q = q.eq('status', status);
+    .select(`*, suppliers(name), warehouses(name),
+             creator:employees!created_by(first_name, last_name),
+             purchase_order_items(*, items(sku, name, unit))`)
+    .order('po_id', { ascending: false });
+  if (statuses) q = q.in('status', statuses);
   return run(q);
 }
 
-export function getTransfers(status = null) {
+export function getTransfers(statuses = null) {
   let q = supabase.from('stock_transfers')
-    .select('*, from_warehouse:warehouses!from_warehouse_id(name), to_warehouse:warehouses!to_warehouse_id(name), transfer_items(*, items(sku, name))')
-    .order('requested_at', { ascending: false });
+    .select(`*, from_warehouse:warehouses!from_warehouse_id(name),
+             to_warehouse:warehouses!to_warehouse_id(name),
+             requester:employees!requested_by(first_name, last_name),
+             approver:employees!approved_by(first_name, last_name),
+             transfer_items(*, items(sku, name, unit))`)
+    .order('transfer_id', { ascending: false });
+  if (statuses) q = q.in('status', statuses);
+  return run(q);
+}
+
+export function getAdjustments(status = null) {
+  let q = supabase.from('stock_adjustments')
+    .select(`*, items(sku, name, unit), warehouses(name),
+             requester:employees!requested_by(first_name, last_name),
+             reviewer:employees!reviewed_by(first_name, last_name)`)
+    .order('adjustment_id', { ascending: false });
   if (status) q = q.eq('status', status);
   return run(q);
 }
 
-export const getAdjustments = (status = 'pending') =>
-  run(supabase.from('stock_adjustments').select('*, items(sku, name), warehouses(name)').eq('status', status));
+export function getAuditLogs(tableName = null, limit = 200) {
+  let q = supabase.from('audit_logs').select('*, users(email)')
+    .order('log_id', { ascending: false }).limit(limit);
+  if (tableName) q = q.eq('table_name', tableName);
+  return run(q);
+}
 
-export const getAuditLogs = (limit = 200) =>
-  run(supabase.from('audit_logs').select('*').order('changed_at', { ascending: false }).limit(limit));
+export const getUsers = () =>
+  run(supabase.from('users').select('*, employees(employee_id, first_name, last_name)').order('email'));
 
-// ---------------------------------------------------------------- Workflows (stored functions)
+export const getEmployees = () =>
+  run(supabase.from('employees')
+    .select('*, users(email), employee_assignments(assignment_id, warehouse_id, assigned_role, status, warehouses(name))')
+    .order('last_name'));
+
+// ------------------------------------------------------------------ Workflows (stored functions)
 // items = [{ item_id: 3, qty: 50 }, ...]
 
 export const createPurchaseOrder = (supplierId, warehouseId, items, expectedAt = null) =>
@@ -127,24 +157,40 @@ export const reviewAdjustment = (adjustmentId, approve) =>
 export const getItemAvailability = (itemId) =>
   run(supabase.rpc('get_item_availability', { p_item_id: itemId }));
 
-// ---------------------------------------------------------------- Reports
+// ------------------------------------------------------------------ Reports
 export const getMovementReport = (warehouseId, from, to) =>
   run(supabase.rpc('get_movement_report', { p_warehouse_id: warehouseId, p_from: from, p_to: to }));
 
 export const getPurchaseReport = (from, to) =>
   run(supabase.rpc('get_purchase_report', { p_from: from, p_to: to }));
 
-// ---------------------------------------------------------------- Admin: master data (direct table writes, admin-only by RLS)
-export const addItem         = (item) => run(supabase.from('items').insert(item).select().single());
-export const updateItem      = (id, changes) => run(supabase.from('items').update(changes).eq('item_id', id).select().single());
-export const addWarehouse    = (w) => run(supabase.from('warehouses').insert(w).select().single());
-export const addSupplier     = (s) => run(supabase.from('suppliers').insert(s).select().single());
-export const addCategory     = (c) => run(supabase.from('categories').insert(c).select().single());
-export const addEmployee     = (e) => run(supabase.from('employees').insert(e).select().single());
-export const setUserRole     = (userId, role, isActive) =>
-  run(supabase.from('users').update({ role, is_active: isActive }).eq('user_id', userId).select().single());
-export const assignEmployee  = (employeeId, warehouseId, assignedRole) =>
-  run(supabase.from('employee_assignments')
-    .insert({ employee_id: employeeId, warehouse_id: warehouseId, assigned_role: assignedRole }).select().single());
-export const endAssignment   = (assignmentId) =>
+// ------------------------------------------------------------------ Admin: master data
+// Direct table writes. RLS only allows these for admins.
+const insertRow = (table, row) => run(supabase.from(table).insert(row).select().single());
+const updateRow = (table, key, id, changes) => run(supabase.from(table).update(changes).eq(key, id).select().single());
+const deleteRow = (table, key, id) => run(supabase.from(table).delete().eq(key, id));
+
+export const addItem         = (row)          => insertRow('items', row);
+export const updateItem      = (id, changes)  => updateRow('items', 'item_id', id, changes);
+export const deleteItem      = (id)           => deleteRow('items', 'item_id', id);
+export const addCategory     = (row)          => insertRow('categories', row);
+export const updateCategory  = (id, changes)  => updateRow('categories', 'category_id', id, changes);
+export const deleteCategory  = (id)           => deleteRow('categories', 'category_id', id);
+export const addSupplier     = (row)          => insertRow('suppliers', row);
+export const updateSupplier  = (id, changes)  => updateRow('suppliers', 'supplier_id', id, changes);
+export const deleteSupplier  = (id)           => deleteRow('suppliers', 'supplier_id', id);
+export const addWarehouse    = (row)          => insertRow('warehouses', row);
+export const updateWarehouse = (id, changes)  => updateRow('warehouses', 'warehouse_id', id, changes);
+export const deleteWarehouse = (id)           => deleteRow('warehouses', 'warehouse_id', id);
+export const addEmployee     = (row)          => insertRow('employees', row);
+export const updateEmployee  = (id, changes)  => updateRow('employees', 'employee_id', id, changes);
+export const deleteEmployee  = (id)           => deleteRow('employees', 'employee_id', id);
+
+export const setUserRole = (userId, role, isActive) =>
+  updateRow('users', 'user_id', userId, { role, is_active: isActive });
+
+export const assignEmployee = (employeeId, warehouseId, assignedRole) =>
+  insertRow('employee_assignments', { employee_id: employeeId, warehouse_id: warehouseId, assigned_role: assignedRole });
+
+export const endAssignment = (assignmentId) =>
   run(supabase.from('employee_assignments').update({ status: 'ended' }).eq('assignment_id', assignmentId));
