@@ -63,7 +63,7 @@ begin
   select count(*) into v_n from public.users;
   perform pg_temp.check('RLS: staff sees only their own user row', v_n = 1, v_n || ' rows visible');
 
-  perform pg_temp.login('admin@stocksync.test');
+  perform pg_temp.login('saycon.karl_christian@hnu.edu.ph');
   select count(distinct warehouse_id) into v_n from public.warehouse_stock;
   perform pg_temp.check('RLS: admin sees all warehouses', v_n = 3, v_n || ' warehouse(s) visible');
 
@@ -80,7 +80,7 @@ begin
     'row-level security');
 
   -- ---------- 3. Purchase orders ----------
-  perform pg_temp.login('manager.mandaue@stocksync.test');
+  perform pg_temp.login('deiparine.luke_maverick@hnu.edu.ph');
   perform pg_temp.expect_error('PO: manager cannot order for another warehouse',
     format('select public.create_purchase_order(%s, %s, ''[{"item_id": %s, "qty": 10}]'')', v_sup, v_cebu, v_hammer),
     'Only a manager of this warehouse');
@@ -99,12 +99,12 @@ begin
   perform pg_temp.check('PO: stock increased 12 -> 52 via ledger trigger', v_n = 52, 'on hand = ' || v_n);
 
   -- ---------- 4. Transfers + reservations ----------
-  perform pg_temp.login('manager.mandaue@stocksync.test');
+  perform pg_temp.login('deiparine.luke_maverick@hnu.edu.ph');
   v_tr := public.request_transfer(v_cebu, v_mandaue, format('[{"item_id": %s, "qty": 50}]', v_led)::jsonb);
   perform pg_temp.expect_error('TRANSFER: manager cannot approve (admin only)',
     format('select public.review_transfer(%s, true)', v_tr), 'Only an administrator');
 
-  perform pg_temp.login('admin@stocksync.test');
+  perform pg_temp.login('saycon.karl_christian@hnu.edu.ph');
   v_status := public.review_transfer(v_tr, true);
   select quantity_reserved into v_n from public.warehouse_stock where warehouse_id = v_cebu and item_id = v_led;
   perform pg_temp.check('TRANSFER: approval reserves 50 at source', v_status = 'approved' and v_n = 50, 'reserved = ' || v_n);
@@ -115,13 +115,13 @@ begin
   perform pg_temp.login('staff.cebu@stocksync.test');
   perform pg_temp.expect_error('ADJUSTMENT: staff cannot approve adjustments',
     format('select public.review_adjustment(%s, true)', v_adj), 'Only a manager');
-  perform pg_temp.login('manager.cebu@stocksync.test');
+  perform pg_temp.login('buniao.geokkee_rod@hnu.edu.ph');
   perform pg_temp.expect_error('NEGATIVE STOCK: cannot remove reserved stock',
     format('select public.review_adjustment(%s, true)', v_adj), 'Insufficient stock');
   select status::text into v_status from public.stock_adjustments where adjustment_id = v_adj;
   perform pg_temp.check('ROLLBACK: failed approval leaves adjustment pending', v_status = 'pending', v_status);
 
-  perform pg_temp.login('manager.mandaue@stocksync.test');
+  perform pg_temp.login('deiparine.luke_maverick@hnu.edu.ph');
   perform pg_temp.expect_error('TRANSFER: destination cannot send it',
     format('select public.send_transfer(%s)', v_tr), 'Only staff of the source');
   perform pg_temp.login('staff.cebu@stocksync.test');
@@ -137,11 +137,11 @@ begin
   perform pg_temp.check('TRANSFER: receiving adds stock 35 -> 85', v_n = 85, 'on hand = ' || v_n);
 
   -- ---------- 5. Separation of duties ----------
-  perform pg_temp.login('manager.cebu@stocksync.test');
+  perform pg_temp.login('buniao.geokkee_rod@hnu.edu.ph');
   v_adj := public.request_adjustment(v_cebu, v_hammer, -2, 'damaged');
   perform pg_temp.expect_error('ADJUSTMENT: manager cannot approve own request',
     format('select public.review_adjustment(%s, true)', v_adj), 'your own');
-  perform pg_temp.login('admin@stocksync.test');
+  perform pg_temp.login('saycon.karl_christian@hnu.edu.ph');
   v_status := public.review_adjustment(v_adj, true);
   perform pg_temp.check('ADJUSTMENT: admin approves, stock 60 -> 58',
     v_status = 'approved' and (select quantity_on_hand from public.warehouse_stock where warehouse_id = v_cebu and item_id = v_hammer) = 58,
