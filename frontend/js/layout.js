@@ -80,7 +80,7 @@ export async function initPage({ allowedRoles, title, sections }) {
               <i class="bi bi-${s.icon} me-2"></i>${esc(s.label)}</a>`).join('')}
           </nav>
           ${!isAdmin ? `<div class="assignments px-3 pb-3">
-            <div class="small text-uppercase text-muted fw-semibold mb-1">My warehouses</div>
+            <div class="assignments-title">My warehouses</div>
             ${ctx.myWarehouses.length
               ? ctx.myWarehouses.map((w) => `<div class="small">${esc(w.name)} <span class="text-muted">(${esc(w.assigned_role)})</span></div>`).join('')
               : '<div class="small text-danger">Not assigned to any warehouse yet.</div>'}

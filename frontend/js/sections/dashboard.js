@@ -1,6 +1,7 @@
 // Dashboard: summary tiles, one card per warehouse, low-stock alerts
 import { getDashboard, getLowStock } from '../api.js';
 import { esc, money, num, table } from '../ui.js';
+import { aisleStrip } from '../art.js';
 
 export async function renderDashboard(el, ctx) {
   const [warehouses, lowStock] = await Promise.all([getDashboard(), getLowStock()]);
@@ -15,12 +16,32 @@ export async function renderDashboard(el, ctx) {
     { label: 'Pending adjustments', value: num(sum('pending_adjustments')), icon: 'clipboard-check',     color: 'secondary' },
   ];
 
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const firstName = ctx.employee?.first_name?.split(' ')[0] ?? '';
+  const today = new Date().toLocaleDateString('en-PH', { weekday: 'long', month: 'long', day: 'numeric' });
+  const lowTotal = sum('low_stock_items');
+  const summary = !warehouses.length
+    ? 'You are not assigned to a warehouse yet. Ask an administrator to assign you.'
+    : lowTotal
+      ? `${num(lowTotal)} item${lowTotal === 1 ? ' is' : 's are'} at or below the reorder level across ${ctx.isAdmin ? 'all' : 'your'} ${warehouses.length === 1 ? 'warehouse' : num(warehouses.length) + ' warehouses'}.`
+      : `All stock is above reorder levels across ${ctx.isAdmin ? 'all' : 'your'} ${warehouses.length === 1 ? 'warehouse' : num(warehouses.length) + ' warehouses'}.`;
+
   el.innerHTML = `
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-date">${esc(today)}</div>
+        <h2 class="hero-title">${greeting}${firstName ? ', ' + esc(firstName) : ''}</h2>
+        <p>${esc(summary)}</p>
+      </div>
+      ${aisleStrip()}
+    </div>
+
     <div class="row g-3 mb-4">
       ${tiles.map((t) => `
         <div class="col-6 col-md-4 col-xl-2">
-          <div class="stat-tile">
-            <div class="stat-icon text-${t.color}"><i class="bi bi-${t.icon}"></i></div>
+          <div class="stat-tile tone-${t.color}">
+            <div class="stat-icon"><i class="bi bi-${t.icon}"></i></div>
             <div class="stat-value">${t.value}</div>
             <div class="stat-label">${esc(t.label)}</div>
           </div>
@@ -31,9 +52,9 @@ export async function renderDashboard(el, ctx) {
     <div class="row g-3 mb-4">
       ${warehouses.length ? warehouses.map((w) => `
         <div class="col-md-6 col-xl-4">
-          <div class="card h-100">
+          <div class="card h-100 warehouse-card">
             <div class="card-body">
-              <h6 class="card-title mb-3"><i class="bi bi-building me-1 text-primary"></i>${esc(w.warehouse_name)}</h6>
+              <h6 class="card-title mb-3">${esc(w.warehouse_name)}</h6>
               <div class="row text-center g-2 small">
                 <div class="col-4"><div class="fw-semibold ${w.low_stock_items > 0 ? 'text-danger' : ''}">${num(w.low_stock_items)}</div><div class="text-muted">low stock</div></div>
                 <div class="col-4"><div class="fw-semibold">${num(w.open_purchase_orders)}</div><div class="text-muted">open POs</div></div>
