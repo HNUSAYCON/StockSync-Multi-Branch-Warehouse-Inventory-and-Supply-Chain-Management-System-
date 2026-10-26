@@ -39,9 +39,9 @@ Run the frontend with VS Code's **Live Server** (right-click `index.html` → Op
 2. **Run the migrations in order.** Open **SQL Editor** → New query, paste each file, click **Run**: `001` → `002` → `003` → `004` → `005` → `006`. Each should end with "Success. No rows returned."
 3. **Turn off public sign-ups.** Go to **Authentication → Sign In / Providers** and disable "Allow new users to sign up". Only admins should create accounts.
 4. **Create the demo logins.** Go to **Authentication → Users → Add user → Create new user**. Tick *Auto Confirm User* and create:
-   - `admin@stocksync.test`
-   - `manager.cebu@stocksync.test`
-   - `manager.mandaue@stocksync.test`
+   - `saycon.karl_christian@hnu.edu.ph`
+   - `buniao.geokkee_rod@hnu.edu.ph`
+   - `deiparine.luke_maverick@hnu.edu.ph`
    - `staff.cebu@stocksync.test`
    - `staff.mandaue@stocksync.test`
 5. **Run `007_demo_accounts.sql`.** It shows a table of who is assigned where.
