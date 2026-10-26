@@ -9,7 +9,11 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// sessionStorage = the login lasts only while this browser TAB is open.
+// Closing the tab logs out, and each tab can be logged in as a different user.
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: { storage: window.sessionStorage, persistSession: true },
+});
 
 // Every call returns data, or throws an Error with the database's message
 // (e.g. "Insufficient stock for item 4 ..."), so pages can show it.
