@@ -1,0 +1,60 @@
+/* StockSync | shared styles on top of Bootstrap 5 */
+:root {
+  --ss-navy: #13233a;
+  --ss-accent: #2f6fed;
+  --ss-bg: #f4f6fa;
+  --ss-border: #e3e7ee;
+}
+
+body { background: var(--ss-bg); font-size: 0.95rem; }
+
+/* ---------- top bar & layout */
+.topbar { background: var(--ss-navy); }
+.topbar .brand-sub { font-weight: 400; opacity: 0.6; font-size: 0.9rem; }
+
+.layout { display: flex; min-height: calc(100vh - 56px); }
+.sidebar { width: 230px; flex-shrink: 0; background: #fff; border-right: 1px solid var(--ss-border); }
+@media (min-width: 992px) {
+  .sidebar { position: sticky; top: 56px; height: calc(100vh - 56px); overflow-y: auto; background: #fff !important; }
+}
+.card-table code { white-space: nowrap; }
+.sidebar .nav-link { color: #3b4a5e; border-radius: 8px; padding: 0.55rem 0.75rem; margin-bottom: 2px; }
+.sidebar .nav-link:hover { background: var(--ss-bg); }
+.sidebar .nav-link.active { background: #e8effd; color: var(--ss-accent); font-weight: 600; }
+.sidebar .assignments { border-top: 1px solid var(--ss-border); padding-top: 0.75rem; margin-top: 0.5rem; }
+
+.content { flex: 1; min-width: 0; padding: 1.5rem; }
+@media (max-width: 575px) { .content { padding: 1rem; } }
+
+/* ---------- building blocks */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.section-heading { text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.75rem; color: #6b7a90; font-weight: 700; margin-bottom: 0.75rem; }
+
+.card { border: 1px solid var(--ss-border); border-radius: 12px; }
+
+.card-table { background: #fff; border: 1px solid var(--ss-border); border-radius: 12px; }
+.card-table thead th { background: #f8f9fc; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; color: #6b7a90; font-weight: 600; white-space: nowrap; border-bottom-color: var(--ss-border); }
+.card-table td { border-color: #eef1f5; }
+.card-table tbody tr:last-child td { border-bottom: 0; }
+
+.empty-state { background: #fff; border: 1px dashed #cdd5e0; border-radius: 12px; padding: 2.5rem 1rem; text-align: center; color: #7a879a; }
+
+.stat-tile { background: #fff; border: 1px solid var(--ss-border); border-radius: 12px; padding: 1rem; height: 100%; }
+.stat-icon { font-size: 1.3rem; margin-bottom: 0.25rem; }
+.stat-value { font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+.stat-label { font-size: 0.8rem; color: #6b7a90; }
+
+.chip { display: inline-flex; align-items: center; gap: 0.25rem; background: #eef2f8; border-radius: 999px; padding: 0.15rem 0.35rem 0.15rem 0.65rem; font-size: 0.8rem; margin: 0.1rem 0; }
+.chip-x { border: 0; background: transparent; color: #8a96a8; line-height: 1; font-size: 1rem; padding: 0 0.2rem; }
+.chip-x:hover { color: #dc3545; }
+
+.flow-hint { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+
+pre.json { background: #0f1b2d; color: #d7e3f5; border-radius: 8px; padding: 0.75rem; font-size: 0.78rem; max-height: 420px; overflow: auto; }
+
+/* ---------- login page */
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem;
+  background: linear-gradient(135deg, var(--ss-navy) 0%, #234a86 100%); }
+.login-card { width: 100%; max-width: 400px; border: 0; border-radius: 16px; }
+.login-logo { width: 56px; height: 56px; border-radius: 14px; background: #e8effd; color: var(--ss-accent);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; }

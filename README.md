@@ -20,8 +20,18 @@ supabase/
 tests/
   test_scenarios.sql        32 automated checks (runs inside a rollback)
   concurrency_demo.sql      two-tab row-locking demo for the defense
-frontend/js/api.js          ready-made JS functions for every backend operation
+frontend/
+  index.html                login page (sends each role to its own page)
+  admin.html / manager.html / staff.html   role dashboards
+  css/app.css               shared styles (on top of Bootstrap 5)
+  js/config.js              YOUR Supabase URL + anon key go here
+  js/api.js                 every call to the backend (reads + stored functions)
+  js/ui.js                  tables, badges, pop-up forms, toasts
+  js/layout.js              login check, role redirect, side menu
+  js/sections/*.js          one file per feature (stock, orders, transfers, ...)
 ```
+
+Run the frontend with VS Code's **Live Server** (right-click `index.html` → Open with Live Server). Opening the file by double-clicking won't work, because browsers block module scripts from `file://`.
 
 ## Setup (about 15 minutes)
 
@@ -29,9 +39,9 @@ frontend/js/api.js          ready-made JS functions for every backend operation
 2. **Run the migrations in order.** Open **SQL Editor** → New query, paste each file, click **Run**: `001` → `002` → `003` → `004` → `005` → `006`. Each should end with "Success. No rows returned."
 3. **Turn off public sign-ups.** Go to **Authentication → Sign In / Providers** and disable "Allow new users to sign up". Only admins should create accounts.
 4. **Create the demo logins.** Go to **Authentication → Users → Add user → Create new user**. Tick *Auto Confirm User* and create:
-   - `admin@stocksync.test`
-   - `manager.cebu@stocksync.test`
-   - `manager.mandaue@stocksync.test`
+   - `saycon.karl_christian@hnu.edu.ph`
+   - `buniao.geokkee_rod@hnu.edu.ph`
+   - `deiparine.luke_maverick@hnu.edu.ph`
    - `staff.cebu@stocksync.test`
    - `staff.mandaue@stocksync.test`
 5. **Run `007_demo_accounts.sql`.** It shows a table of who is assigned where.

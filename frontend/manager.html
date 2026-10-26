@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockSync | Warehouse Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { initPage } from './js/layout.js';
+    import { renderDashboard } from './js/sections/dashboard.js';
+    import { renderStock } from './js/sections/stock.js';
+    import { renderPurchaseOrders } from './js/sections/purchaseOrders.js';
+    import { renderTransfers } from './js/sections/transfers.js';
+    import { renderAdjustments } from './js/sections/adjustments.js';
+    import { renderMovements } from './js/sections/movements.js';
+    import { renderReports } from './js/sections/reports.js';
+
+    initPage({
+      allowedRoles: ['manager'],
+      title: 'Warehouse Manager',
+      sections: [
+        { id: 'dashboard',   label: 'Dashboard',        icon: 'speedometer2',    render: renderDashboard },
+        { id: 'stock',       label: 'Stock levels',     icon: 'box-seam',        render: renderStock },
+        { id: 'orders',      label: 'Purchase orders',  icon: 'cart',            render: renderPurchaseOrders },
+        { id: 'transfers',   label: 'Transfers',        icon: 'truck',           render: renderTransfers },
+        { id: 'adjustments', label: 'Adjustments',      icon: 'clipboard-check', render: renderAdjustments },
+        { id: 'movements',   label: 'Movement history', icon: 'arrow-left-right',render: renderMovements },
+        { id: 'reports',     label: 'Reports',          icon: 'bar-chart',       render: renderReports },
+      ],
+    });
+  </script>
+</body>
+</html>
