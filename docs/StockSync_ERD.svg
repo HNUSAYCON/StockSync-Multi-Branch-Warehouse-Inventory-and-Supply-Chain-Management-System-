@@ -1,0 +1,718 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1888" height="2010" viewBox="0 0 1888 2010" font-family="Helvetica, Arial, sans-serif">
+<rect width="1888" height="2010" fill="#fff"/>
+<rect x="110" y="37" width="520" height="195" rx="6" fill="#fff" stroke="#333333" stroke-width="2.5"/>
+<text x="124" y="60" font-size="17.5" fill="#333333">Group SAYCON</text>
+<text x="124" y="83" font-size="17.5" fill="#333333">Members: BUNIAO, Geokkee Rod</text>
+<text x="208" y="106" font-size="17.5" fill="#333333">SAYCON, Karl Christian</text>
+<text x="208" y="129" font-size="17.5" fill="#333333">DEIPARINE, Luke Maverick</text>
+<text x="124" y="175" font-size="17.5" fill="#333333">System Name: StockSync</text>
+<text x="124" y="198" font-size="17.5" fill="#333333">Multi-Branch Warehouse Inventory &amp;</text>
+<text x="124" y="221" font-size="17.5" fill="#333333">Supply Chain Management System</text>
+<rect x="700" y="37" width="660" height="195" rx="6" fill="#fff" stroke="#333333" stroke-width="2.5"/>
+<text x="714" y="65" font-size="16" font-weight="bold" fill="#333333">Line color = parent table (the PK side)</text>
+<line x1="718" y1="99" x2="752" y2="99" stroke="#1f6fd1" stroke-width="4"/>
+<text x="762" y="104" font-size="14" fill="#333333">employees</text>
+<line x1="933" y1="99" x2="967" y2="99" stroke="#16935a" stroke-width="4"/>
+<text x="977" y="104" font-size="14" fill="#333333">warehouses</text>
+<line x1="1148" y1="99" x2="1182" y2="99" stroke="#d9730d" stroke-width="4"/>
+<text x="1192" y="104" font-size="14" fill="#333333">items</text>
+<line x1="718" y1="129" x2="752" y2="129" stroke="#7b4bc4" stroke-width="4"/>
+<text x="762" y="134" font-size="14" fill="#333333">users</text>
+<line x1="933" y1="129" x2="967" y2="129" stroke="#c2185b" stroke-width="4"/>
+<text x="977" y="134" font-size="14" fill="#333333">stock_transfers</text>
+<line x1="1148" y1="129" x2="1182" y2="129" stroke="#0097a7" stroke-width="4"/>
+<text x="1192" y="134" font-size="14" fill="#333333">purchase_orders</text>
+<line x1="718" y1="159" x2="752" y2="159" stroke="#8d6e00" stroke-width="4"/>
+<text x="762" y="164" font-size="14" fill="#333333">stock_adjustments</text>
+<line x1="933" y1="159" x2="967" y2="159" stroke="#5d4037" stroke-width="4"/>
+<text x="977" y="164" font-size="14" fill="#333333">suppliers</text>
+<line x1="1148" y1="159" x2="1182" y2="159" stroke="#546e7a" stroke-width="4"/>
+<text x="1192" y="164" font-size="14" fill="#333333">categories</text>
+<circle cx="724" cy="202" r="4.5" fill="#333333"/>
+<text x="744" y="207" font-size="14" fill="#333333">Dot = one line branching to several tables</text>
+<path d="M 428,1420 L 578,1420" fill="none" stroke="#7b4bc4" stroke-width="2.2"/>
+<path d="M 428,1420 L 452,1420 L 452,1816 L 578,1816" fill="none" stroke="#7b4bc4" stroke-width="2.2"/>
+<path d="M 428,908 L 578,908" fill="none" stroke="#546e7a" stroke-width="2.2"/>
+<path d="M 884,624 L 950,624 L 950,691 L 1034,691" fill="none" stroke="#5d4037" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1367 L 1034,1367" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1707 L 1034,1707" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1735 L 1034,1735" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,747 L 1034,747" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1139 L 1034,1139" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1167 L 1034,1167" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1392 L 922,1392 L 922,1853 L 1392,1853 L 1392,1089 L 1490,1089" fill="none" stroke="#1f6fd1" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,1395 L 1034,1395" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,1651 L 1034,1651" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,1679 L 1034,1679" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,719 L 1034,719" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,435 L 1034,435" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,971 L 1034,971" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,1164 L 936,1164 L 936,865 L 1490,865" fill="none" stroke="#16935a" stroke-width="2.2"/>
+<path d="M 884,880 L 908,880 L 908,463 L 1034,463" fill="none" stroke="#d9730d" stroke-width="2.2"/>
+<path d="M 884,880 L 908,880 L 908,999 L 1034,999" fill="none" stroke="#d9730d" stroke-width="2.2"/>
+<path d="M 884,880 L 908,880 L 908,1868 L 1490,1868" fill="none" stroke="#d9730d" stroke-width="2.2"/>
+<path d="M 884,880 L 1364,880 L 1364,893 L 1490,893" fill="none" stroke="#d9730d" stroke-width="2.2"/>
+<path d="M 884,880 L 908,880 L 908,372 L 1490,372" fill="none" stroke="#d9730d" stroke-width="2.2"/>
+<path d="M 1340,1623 L 1378,1623 L 1378,1840 L 1490,1840" fill="none" stroke="#c2185b" stroke-width="2.2"/>
+<path d="M 1340,1623 L 1378,1623 L 1378,1033 L 1490,1033" fill="none" stroke="#c2185b" stroke-width="2.2"/>
+<path d="M 1340,663 L 1378,663 L 1378,344 L 1490,344" fill="none" stroke="#0097a7" stroke-width="2.2"/>
+<path d="M 1340,663 L 1378,663 L 1378,1005 L 1490,1005" fill="none" stroke="#0097a7" stroke-width="2.2"/>
+<path d="M 1340,943 L 1364,943 L 1364,1061 L 1490,1061" fill="none" stroke="#8d6e00" stroke-width="2.2"/>
+<line x1="438" y1="1412" x2="438" y2="1428" stroke="#7b4bc4" stroke-width="2.2"/>
+<line x1="445" y1="1412" x2="445" y2="1428" stroke="#7b4bc4" stroke-width="2.2"/>
+<line x1="569" y1="1412" x2="569" y2="1428" stroke="#7b4bc4" stroke-width="2.2"/>
+<circle cx="553" cy="1420" r="6" fill="#fff" stroke="#7b4bc4" stroke-width="2.2"/>
+<circle cx="452" cy="1420" r="4.5" fill="#7b4bc4"/>
+<line x1="562" y1="1816" x2="578" y2="1807" stroke="#7b4bc4" stroke-width="2.2"/>
+<line x1="562" y1="1816" x2="578" y2="1816" stroke="#7b4bc4" stroke-width="2.2"/>
+<line x1="562" y1="1816" x2="578" y2="1825" stroke="#7b4bc4" stroke-width="2.2"/>
+<circle cx="553" cy="1816" r="6" fill="#fff" stroke="#7b4bc4" stroke-width="2.2"/>
+<line x1="438" y1="900" x2="438" y2="916" stroke="#546e7a" stroke-width="2.2"/>
+<line x1="445" y1="900" x2="445" y2="916" stroke="#546e7a" stroke-width="2.2"/>
+<line x1="562" y1="908" x2="578" y2="899" stroke="#546e7a" stroke-width="2.2"/>
+<line x1="562" y1="908" x2="578" y2="908" stroke="#546e7a" stroke-width="2.2"/>
+<line x1="562" y1="908" x2="578" y2="917" stroke="#546e7a" stroke-width="2.2"/>
+<circle cx="553" cy="908" r="6" fill="#fff" stroke="#546e7a" stroke-width="2.2"/>
+<line x1="894" y1="616" x2="894" y2="632" stroke="#5d4037" stroke-width="2.2"/>
+<line x1="901" y1="616" x2="901" y2="632" stroke="#5d4037" stroke-width="2.2"/>
+<line x1="1018" y1="691" x2="1034" y2="682" stroke="#5d4037" stroke-width="2.2"/>
+<line x1="1018" y1="691" x2="1034" y2="691" stroke="#5d4037" stroke-width="2.2"/>
+<line x1="1018" y1="691" x2="1034" y2="700" stroke="#5d4037" stroke-width="2.2"/>
+<circle cx="1009" cy="691" r="6" fill="#fff" stroke="#5d4037" stroke-width="2.2"/>
+<circle cx="922" cy="1392" r="4.5" fill="#1f6fd1"/>
+<circle cx="922" cy="1367" r="4.5" fill="#1f6fd1"/>
+<line x1="894" y1="1384" x2="894" y2="1400" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="901" y1="1384" x2="901" y2="1400" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1367" x2="1034" y2="1358" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1367" x2="1034" y2="1367" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1367" x2="1034" y2="1376" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="1367" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="922" cy="1707" r="4.5" fill="#1f6fd1"/>
+<line x1="1018" y1="1707" x2="1034" y2="1698" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1707" x2="1034" y2="1707" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1707" x2="1034" y2="1716" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="1707" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="922" cy="1735" r="4.5" fill="#1f6fd1"/>
+<line x1="1018" y1="1735" x2="1034" y2="1726" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1735" x2="1034" y2="1735" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1735" x2="1034" y2="1744" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="1735" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="747" x2="1034" y2="738" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="747" x2="1034" y2="747" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="747" x2="1034" y2="756" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="747" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="922" cy="1139" r="4.5" fill="#1f6fd1"/>
+<line x1="1018" y1="1139" x2="1034" y2="1130" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1139" x2="1034" y2="1139" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1139" x2="1034" y2="1148" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="1139" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="922" cy="1167" r="4.5" fill="#1f6fd1"/>
+<line x1="1018" y1="1167" x2="1034" y2="1158" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1167" x2="1034" y2="1167" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1018" y1="1167" x2="1034" y2="1176" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1009" cy="1167" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1474" y1="1089" x2="1490" y2="1080" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1474" y1="1089" x2="1490" y2="1089" stroke="#1f6fd1" stroke-width="2.2"/>
+<line x1="1474" y1="1089" x2="1490" y2="1098" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="1465" cy="1089" r="6" fill="#fff" stroke="#1f6fd1" stroke-width="2.2"/>
+<circle cx="936" cy="1164" r="4.5" fill="#16935a"/>
+<circle cx="936" cy="1395" r="4.5" fill="#16935a"/>
+<line x1="894" y1="1156" x2="894" y2="1172" stroke="#16935a" stroke-width="2.2"/>
+<line x1="901" y1="1156" x2="901" y2="1172" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1395" x2="1034" y2="1386" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1395" x2="1034" y2="1395" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1395" x2="1034" y2="1404" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="1395" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="936" cy="1651" r="4.5" fill="#16935a"/>
+<line x1="1018" y1="1651" x2="1034" y2="1642" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1651" x2="1034" y2="1651" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1651" x2="1034" y2="1660" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="1651" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1679" x2="1034" y2="1670" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1679" x2="1034" y2="1679" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="1679" x2="1034" y2="1688" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="1679" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="936" cy="719" r="4.5" fill="#16935a"/>
+<line x1="1018" y1="719" x2="1034" y2="710" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="719" x2="1034" y2="719" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="719" x2="1034" y2="728" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="719" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="435" x2="1034" y2="426" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="435" x2="1034" y2="435" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="435" x2="1034" y2="444" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="435" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="936" cy="971" r="4.5" fill="#16935a"/>
+<line x1="1018" y1="971" x2="1034" y2="962" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="971" x2="1034" y2="971" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1018" y1="971" x2="1034" y2="980" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1009" cy="971" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="936" cy="865" r="4.5" fill="#16935a"/>
+<line x1="1474" y1="865" x2="1490" y2="856" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1474" y1="865" x2="1490" y2="865" stroke="#16935a" stroke-width="2.2"/>
+<line x1="1474" y1="865" x2="1490" y2="874" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="1465" cy="865" r="6" fill="#fff" stroke="#16935a" stroke-width="2.2"/>
+<circle cx="908" cy="880" r="4.5" fill="#d9730d"/>
+<circle cx="908" cy="463" r="4.5" fill="#d9730d"/>
+<line x1="894" y1="872" x2="894" y2="888" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="901" y1="872" x2="901" y2="888" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1018" y1="463" x2="1034" y2="454" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1018" y1="463" x2="1034" y2="463" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1018" y1="463" x2="1034" y2="472" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1009" cy="463" r="6" fill="#fff" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="908" cy="999" r="4.5" fill="#d9730d"/>
+<line x1="1018" y1="999" x2="1034" y2="990" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1018" y1="999" x2="1034" y2="999" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1018" y1="999" x2="1034" y2="1008" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1009" cy="999" r="6" fill="#fff" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="1868" x2="1490" y2="1859" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="1868" x2="1490" y2="1868" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="1868" x2="1490" y2="1877" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1465" cy="1868" r="6" fill="#fff" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="893" x2="1490" y2="884" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="893" x2="1490" y2="893" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="893" x2="1490" y2="902" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1465" cy="893" r="6" fill="#fff" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="372" x2="1490" y2="363" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="372" x2="1490" y2="372" stroke="#d9730d" stroke-width="2.2"/>
+<line x1="1474" y1="372" x2="1490" y2="381" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1465" cy="372" r="6" fill="#fff" stroke="#d9730d" stroke-width="2.2"/>
+<circle cx="1378" cy="1623" r="4.5" fill="#c2185b"/>
+<line x1="1350" y1="1615" x2="1350" y2="1631" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1357" y1="1615" x2="1357" y2="1631" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1840" x2="1490" y2="1831" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1840" x2="1490" y2="1840" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1840" x2="1490" y2="1849" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1467" y1="1832" x2="1467" y2="1848" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1033" x2="1490" y2="1024" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1033" x2="1490" y2="1033" stroke="#c2185b" stroke-width="2.2"/>
+<line x1="1474" y1="1033" x2="1490" y2="1042" stroke="#c2185b" stroke-width="2.2"/>
+<circle cx="1465" cy="1033" r="6" fill="#fff" stroke="#c2185b" stroke-width="2.2"/>
+<circle cx="1378" cy="663" r="4.5" fill="#0097a7"/>
+<line x1="1350" y1="655" x2="1350" y2="671" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1357" y1="655" x2="1357" y2="671" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="344" x2="1490" y2="335" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="344" x2="1490" y2="344" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="344" x2="1490" y2="353" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1467" y1="336" x2="1467" y2="352" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="1005" x2="1490" y2="996" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="1005" x2="1490" y2="1005" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1474" y1="1005" x2="1490" y2="1014" stroke="#0097a7" stroke-width="2.2"/>
+<circle cx="1465" cy="1005" r="6" fill="#fff" stroke="#0097a7" stroke-width="2.2"/>
+<line x1="1350" y1="935" x2="1350" y2="951" stroke="#8d6e00" stroke-width="2.2"/>
+<line x1="1357" y1="935" x2="1357" y2="951" stroke="#8d6e00" stroke-width="2.2"/>
+<line x1="1474" y1="1061" x2="1490" y2="1052" stroke="#8d6e00" stroke-width="2.2"/>
+<line x1="1474" y1="1061" x2="1490" y2="1061" stroke="#8d6e00" stroke-width="2.2"/>
+<line x1="1474" y1="1061" x2="1490" y2="1070" stroke="#8d6e00" stroke-width="2.2"/>
+<circle cx="1465" cy="1061" r="6" fill="#fff" stroke="#8d6e00" stroke-width="2.2"/>
+<rect x="122" y="1378" width="306" height="196" fill="#fff"/><rect x="122" y="1378" width="306" height="28" fill="#f1f1f3"/>
+<text x="275.0" y="1397" font-size="14.5" text-anchor="middle" fill="#333333">users</text>
+<rect x="122" y="1406" width="196" height="28" fill="#fff59d"/>
+<text x="150.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="248.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">user_id</text>
+<text x="373.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">UUID</text>
+<line x1="122" y1="1406" x2="428" y2="1406" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333">email</text>
+<text x="373.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="122" y1="1434" x2="428" y2="1434" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333">role</text>
+<text x="373.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="122" y1="1462" x2="428" y2="1462" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333">is_active</text>
+<text x="373.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333">BOOLEAN</text>
+<line x1="122" y1="1490" x2="428" y2="1490" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333">created_at</text>
+<text x="373.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="122" y1="1518" x2="428" y2="1518" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="1565" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="1565" font-size="13.5" text-anchor="middle" fill="#333333">updated_at</text>
+<text x="373.0" y="1565" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="122" y1="1546" x2="428" y2="1546" stroke="#333333" stroke-width="1.6"/>
+<line x1="178" y1="1406" x2="178" y2="1574" stroke="#333333" stroke-width="1.6"/>
+<line x1="318" y1="1406" x2="318" y2="1574" stroke="#333333" stroke-width="1.6"/>
+<rect x="122" y="1378" width="306" height="196" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="578" y="1606" width="306" height="252" fill="#fff"/><rect x="578" y="1606" width="306" height="28" fill="#f1f1f3"/>
+<text x="731.0" y="1625" font-size="14.5" text-anchor="middle" fill="#333333">audit_logs</text>
+<rect x="578" y="1634" width="196" height="28" fill="#fff59d"/>
+<text x="606.0" y="1653" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="704.0" y="1653" font-size="13.5" text-anchor="middle" fill="#333333">log_id</text>
+<text x="829.0" y="1653" font-size="13.5" text-anchor="middle" fill="#333333">BIGINT</text>
+<line x1="578" y1="1634" x2="884" y2="1634" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1681" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1681" font-size="13.5" text-anchor="middle" fill="#333333">table_name</text>
+<text x="829.0" y="1681" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(50)</text>
+<line x1="578" y1="1662" x2="884" y2="1662" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1709" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1709" font-size="13.5" text-anchor="middle" fill="#333333">record_id</text>
+<text x="829.0" y="1709" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="1690" x2="884" y2="1690" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1737" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1737" font-size="13.5" text-anchor="middle" fill="#333333">action</text>
+<text x="829.0" y="1737" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="578" y1="1718" x2="884" y2="1718" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1765" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1765" font-size="13.5" text-anchor="middle" fill="#333333">old_values</text>
+<text x="829.0" y="1765" font-size="13.5" text-anchor="middle" fill="#333333">JSON</text>
+<line x1="578" y1="1746" x2="884" y2="1746" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1793" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1793" font-size="13.5" text-anchor="middle" fill="#333333">new_values</text>
+<text x="829.0" y="1793" font-size="13.5" text-anchor="middle" fill="#333333">JSON</text>
+<line x1="578" y1="1774" x2="884" y2="1774" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="1802" width="196" height="28" fill="#c9dcf6"/>
+<text x="606.0" y="1821" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="704.0" y="1821" font-size="13.5" text-anchor="middle" fill="#333333">changed_by</text>
+<text x="829.0" y="1821" font-size="13.5" text-anchor="middle" fill="#333333">UUID</text>
+<line x1="578" y1="1802" x2="884" y2="1802" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1849" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1849" font-size="13.5" text-anchor="middle" fill="#333333">changed_at</text>
+<text x="829.0" y="1849" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="578" y1="1830" x2="884" y2="1830" stroke="#333333" stroke-width="1.6"/>
+<line x1="634" y1="1634" x2="634" y2="1858" stroke="#333333" stroke-width="1.6"/>
+<line x1="774" y1="1634" x2="774" y2="1858" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="1606" width="306" height="252" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="578" y="582" width="306" height="196" fill="#fff"/><rect x="578" y="582" width="306" height="28" fill="#f1f1f3"/>
+<text x="731.0" y="601" font-size="14.5" text-anchor="middle" fill="#333333">suppliers</text>
+<rect x="578" y="610" width="196" height="28" fill="#fff59d"/>
+<text x="606.0" y="629" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="704.0" y="629" font-size="13.5" text-anchor="middle" fill="#333333">supplier_id</text>
+<text x="829.0" y="629" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="610" x2="884" y2="610" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="657" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="657" font-size="13.5" text-anchor="middle" fill="#333333">name</text>
+<text x="829.0" y="657" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="638" x2="884" y2="638" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="685" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="685" font-size="13.5" text-anchor="middle" fill="#333333">contact_person</text>
+<text x="829.0" y="685" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="666" x2="884" y2="666" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="713" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="713" font-size="13.5" text-anchor="middle" fill="#333333">email</text>
+<text x="829.0" y="713" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="694" x2="884" y2="694" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="741" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="741" font-size="13.5" text-anchor="middle" fill="#333333">contact_no</text>
+<text x="829.0" y="741" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(15)</text>
+<line x1="578" y1="722" x2="884" y2="722" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="769" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="769" font-size="13.5" text-anchor="middle" fill="#333333">address</text>
+<text x="829.0" y="769" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(255)</text>
+<line x1="578" y1="750" x2="884" y2="750" stroke="#333333" stroke-width="1.6"/>
+<line x1="634" y1="610" x2="634" y2="778" stroke="#333333" stroke-width="1.6"/>
+<line x1="774" y1="610" x2="774" y2="778" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="582" width="306" height="196" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="122" y="866" width="306" height="112" fill="#fff"/><rect x="122" y="866" width="306" height="28" fill="#f1f1f3"/>
+<text x="275.0" y="885" font-size="14.5" text-anchor="middle" fill="#333333">categories</text>
+<rect x="122" y="894" width="196" height="28" fill="#fff59d"/>
+<text x="150.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="248.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">category_id</text>
+<text x="373.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="122" y1="894" x2="428" y2="894" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333">name</text>
+<text x="373.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(50)</text>
+<line x1="122" y1="922" x2="428" y2="922" stroke="#333333" stroke-width="1.6"/>
+<text x="150.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="248.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333">description</text>
+<text x="373.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333">TEXT</text>
+<line x1="122" y1="950" x2="428" y2="950" stroke="#333333" stroke-width="1.6"/>
+<line x1="178" y1="894" x2="178" y2="978" stroke="#333333" stroke-width="1.6"/>
+<line x1="318" y1="894" x2="318" y2="978" stroke="#333333" stroke-width="1.6"/>
+<rect x="122" y="866" width="306" height="112" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="578" y="1350" width="306" height="196" fill="#fff"/><rect x="578" y="1350" width="306" height="28" fill="#f1f1f3"/>
+<text x="731.0" y="1369" font-size="14.5" text-anchor="middle" fill="#333333">employees</text>
+<rect x="578" y="1378" width="196" height="28" fill="#fff59d"/>
+<text x="606.0" y="1397" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="704.0" y="1397" font-size="13.5" text-anchor="middle" fill="#333333">employee_id</text>
+<text x="829.0" y="1397" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="1378" x2="884" y2="1378" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="1406" width="196" height="28" fill="#c9dcf6"/>
+<text x="606.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="704.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">user_id</text>
+<text x="829.0" y="1425" font-size="13.5" text-anchor="middle" fill="#333333">UUID</text>
+<line x1="578" y1="1406" x2="884" y2="1406" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333">first_name</text>
+<text x="829.0" y="1453" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(50)</text>
+<line x1="578" y1="1434" x2="884" y2="1434" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333">last_name</text>
+<text x="829.0" y="1481" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(50)</text>
+<line x1="578" y1="1462" x2="884" y2="1462" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333">contact_no</text>
+<text x="829.0" y="1509" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(15)</text>
+<line x1="578" y1="1490" x2="884" y2="1490" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333">hired_at</text>
+<text x="829.0" y="1537" font-size="13.5" text-anchor="middle" fill="#333333">DATE</text>
+<line x1="578" y1="1518" x2="884" y2="1518" stroke="#333333" stroke-width="1.6"/>
+<line x1="634" y1="1378" x2="634" y2="1546" stroke="#333333" stroke-width="1.6"/>
+<line x1="774" y1="1378" x2="774" y2="1546" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="1350" width="306" height="196" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="578" y="1122" width="306" height="168" fill="#fff"/><rect x="578" y="1122" width="306" height="28" fill="#f1f1f3"/>
+<text x="731.0" y="1141" font-size="14.5" text-anchor="middle" fill="#333333">warehouses</text>
+<rect x="578" y="1150" width="196" height="28" fill="#fff59d"/>
+<text x="606.0" y="1169" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="704.0" y="1169" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="829.0" y="1169" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="1150" x2="884" y2="1150" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1197" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1197" font-size="13.5" text-anchor="middle" fill="#333333">name</text>
+<text x="829.0" y="1197" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="1178" x2="884" y2="1178" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1225" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1225" font-size="13.5" text-anchor="middle" fill="#333333">address</text>
+<text x="829.0" y="1225" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(255)</text>
+<line x1="578" y1="1206" x2="884" y2="1206" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1253" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1253" font-size="13.5" text-anchor="middle" fill="#333333">contact_no</text>
+<text x="829.0" y="1253" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(15)</text>
+<line x1="578" y1="1234" x2="884" y2="1234" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1281" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1281" font-size="13.5" text-anchor="middle" fill="#333333">created_at</text>
+<text x="829.0" y="1281" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="578" y1="1262" x2="884" y2="1262" stroke="#333333" stroke-width="1.6"/>
+<line x1="634" y1="1150" x2="634" y2="1290" stroke="#333333" stroke-width="1.6"/>
+<line x1="774" y1="1150" x2="774" y2="1290" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="1122" width="306" height="168" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="578" y="838" width="306" height="224" fill="#fff"/><rect x="578" y="838" width="306" height="28" fill="#f1f1f3"/>
+<text x="731.0" y="857" font-size="14.5" text-anchor="middle" fill="#333333">items</text>
+<rect x="578" y="866" width="196" height="28" fill="#fff59d"/>
+<text x="606.0" y="885" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="704.0" y="885" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="829.0" y="885" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="866" x2="884" y2="866" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="894" width="196" height="28" fill="#c9dcf6"/>
+<text x="606.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="704.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">category_id</text>
+<text x="829.0" y="913" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="894" x2="884" y2="894" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333">sku</text>
+<text x="829.0" y="941" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(30)</text>
+<line x1="578" y1="922" x2="884" y2="922" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333">name</text>
+<text x="829.0" y="969" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(100)</text>
+<line x1="578" y1="950" x2="884" y2="950" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="997" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="997" font-size="13.5" text-anchor="middle" fill="#333333">unit</text>
+<text x="829.0" y="997" font-size="13.5" text-anchor="middle" fill="#333333">VARCHAR(20)</text>
+<line x1="578" y1="978" x2="884" y2="978" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1025" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1025" font-size="13.5" text-anchor="middle" fill="#333333">unit_cost</text>
+<text x="829.0" y="1025" font-size="13.5" text-anchor="middle" fill="#333333">DECIMAL(10,2)</text>
+<line x1="578" y1="1006" x2="884" y2="1006" stroke="#333333" stroke-width="1.6"/>
+<text x="606.0" y="1053" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="704.0" y="1053" font-size="13.5" text-anchor="middle" fill="#333333">reorder_level</text>
+<text x="829.0" y="1053" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="578" y1="1034" x2="884" y2="1034" stroke="#333333" stroke-width="1.6"/>
+<line x1="634" y1="866" x2="634" y2="1062" stroke="#333333" stroke-width="1.6"/>
+<line x1="774" y1="866" x2="774" y2="1062" stroke="#333333" stroke-width="1.6"/>
+<rect x="578" y="838" width="306" height="224" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1034" y="1297" width="306" height="224" fill="#fff"/><rect x="1034" y="1297" width="306" height="28" fill="#f1f1f3"/>
+<text x="1187.0" y="1316" font-size="14.5" text-anchor="middle" fill="#333333">employee_assignments</text>
+<rect x="1034" y="1325" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="1344" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="1160.0" y="1344" font-size="13.5" text-anchor="middle" fill="#333333">assignment_id</text>
+<text x="1285.0" y="1344" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1325" x2="1340" y2="1325" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1353" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1372" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1372" font-size="13.5" text-anchor="middle" fill="#333333">employee_id</text>
+<text x="1285.0" y="1372" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1353" x2="1340" y2="1353" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1381" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1400" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1400" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="1285.0" y="1400" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1381" x2="1340" y2="1381" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1428" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1428" font-size="13.5" text-anchor="middle" fill="#333333">assigned_role</text>
+<text x="1285.0" y="1428" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="1409" x2="1340" y2="1409" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1456" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1456" font-size="13.5" text-anchor="middle" fill="#333333">status</text>
+<text x="1285.0" y="1456" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="1437" x2="1340" y2="1437" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1484" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1484" font-size="13.5" text-anchor="middle" fill="#333333">assigned_at</text>
+<text x="1285.0" y="1484" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1465" x2="1340" y2="1465" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1512" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1512" font-size="13.5" text-anchor="middle" fill="#333333">ended_at</text>
+<text x="1285.0" y="1512" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1493" x2="1340" y2="1493" stroke="#333333" stroke-width="1.6"/>
+<line x1="1090" y1="1325" x2="1090" y2="1521" stroke="#333333" stroke-width="1.6"/>
+<line x1="1230" y1="1325" x2="1230" y2="1521" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1297" width="306" height="224" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1034" y="1581" width="306" height="252" fill="#fff"/><rect x="1034" y="1581" width="306" height="28" fill="#f1f1f3"/>
+<text x="1187.0" y="1600" font-size="14.5" text-anchor="middle" fill="#333333">stock_transfers</text>
+<rect x="1034" y="1609" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="1628" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="1160.0" y="1628" font-size="13.5" text-anchor="middle" fill="#333333">transfer_id</text>
+<text x="1285.0" y="1628" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1609" x2="1340" y2="1609" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1637" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1656" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1656" font-size="13.5" text-anchor="middle" fill="#333333">from_warehouse_id</text>
+<text x="1285.0" y="1656" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1637" x2="1340" y2="1637" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1665" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1684" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1684" font-size="13.5" text-anchor="middle" fill="#333333">to_warehouse_id</text>
+<text x="1285.0" y="1684" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1665" x2="1340" y2="1665" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1693" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1712" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1712" font-size="13.5" text-anchor="middle" fill="#333333">requested_by</text>
+<text x="1285.0" y="1712" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1693" x2="1340" y2="1693" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1721" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1740" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1740" font-size="13.5" text-anchor="middle" fill="#333333">approved_by</text>
+<text x="1285.0" y="1740" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1721" x2="1340" y2="1721" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1768" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1768" font-size="13.5" text-anchor="middle" fill="#333333">status</text>
+<text x="1285.0" y="1768" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="1749" x2="1340" y2="1749" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1796" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1796" font-size="13.5" text-anchor="middle" fill="#333333">requested_at</text>
+<text x="1285.0" y="1796" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1777" x2="1340" y2="1777" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1824" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1824" font-size="13.5" text-anchor="middle" fill="#333333">completed_at</text>
+<text x="1285.0" y="1824" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1805" x2="1340" y2="1805" stroke="#333333" stroke-width="1.6"/>
+<line x1="1090" y1="1609" x2="1090" y2="1833" stroke="#333333" stroke-width="1.6"/>
+<line x1="1230" y1="1609" x2="1230" y2="1833" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1581" width="306" height="252" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1034" y="621" width="306" height="224" fill="#fff"/><rect x="1034" y="621" width="306" height="28" fill="#f1f1f3"/>
+<text x="1187.0" y="640" font-size="14.5" text-anchor="middle" fill="#333333">purchase_orders</text>
+<rect x="1034" y="649" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="668" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="1160.0" y="668" font-size="13.5" text-anchor="middle" fill="#333333">po_id</text>
+<text x="1285.0" y="668" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="649" x2="1340" y2="649" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="677" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="696" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="696" font-size="13.5" text-anchor="middle" fill="#333333">supplier_id</text>
+<text x="1285.0" y="696" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="677" x2="1340" y2="677" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="705" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="724" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="724" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="1285.0" y="724" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="705" x2="1340" y2="705" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="733" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="752" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="752" font-size="13.5" text-anchor="middle" fill="#333333">created_by</text>
+<text x="1285.0" y="752" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="733" x2="1340" y2="733" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="780" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="780" font-size="13.5" text-anchor="middle" fill="#333333">status</text>
+<text x="1285.0" y="780" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="761" x2="1340" y2="761" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="808" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="808" font-size="13.5" text-anchor="middle" fill="#333333">ordered_at</text>
+<text x="1285.0" y="808" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="789" x2="1340" y2="789" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="836" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="836" font-size="13.5" text-anchor="middle" fill="#333333">expected_at</text>
+<text x="1285.0" y="836" font-size="13.5" text-anchor="middle" fill="#333333">DATE</text>
+<line x1="1034" y1="817" x2="1340" y2="817" stroke="#333333" stroke-width="1.6"/>
+<line x1="1090" y1="649" x2="1090" y2="845" stroke="#333333" stroke-width="1.6"/>
+<line x1="1230" y1="649" x2="1230" y2="845" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="621" width="306" height="224" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1034" y="393" width="306" height="168" fill="#fff"/><rect x="1034" y="393" width="306" height="28" fill="#f1f1f3"/>
+<text x="1187.0" y="412" font-size="14.5" text-anchor="middle" fill="#333333">warehouse_stock</text>
+<rect x="1034" y="421" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="440" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1160.0" y="440" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="1285.0" y="440" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="421" x2="1340" y2="421" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="449" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="468" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1160.0" y="468" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="1285.0" y="468" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="449" x2="1340" y2="449" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="496" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="496" font-size="13.5" text-anchor="middle" fill="#333333">quantity_on_hand</text>
+<text x="1285.0" y="496" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="477" x2="1340" y2="477" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="524" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="524" font-size="13.5" text-anchor="middle" fill="#333333">quantity_reserved</text>
+<text x="1285.0" y="524" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="505" x2="1340" y2="505" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="552" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="552" font-size="13.5" text-anchor="middle" fill="#333333">updated_at</text>
+<text x="1285.0" y="552" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="533" x2="1340" y2="533" stroke="#333333" stroke-width="1.6"/>
+<line x1="1090" y1="421" x2="1090" y2="561" stroke="#333333" stroke-width="1.6"/>
+<line x1="1230" y1="421" x2="1230" y2="561" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="393" width="306" height="168" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1034" y="901" width="306" height="336" fill="#fff"/><rect x="1034" y="901" width="306" height="28" fill="#f1f1f3"/>
+<text x="1187.0" y="920" font-size="14.5" text-anchor="middle" fill="#333333">stock_adjustments</text>
+<rect x="1034" y="929" width="196" height="28" fill="#fff59d"/>
+<text x="1062.0" y="948" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="1160.0" y="948" font-size="13.5" text-anchor="middle" fill="#333333">adjustment_id</text>
+<text x="1285.0" y="948" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="929" x2="1340" y2="929" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="957" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="976" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="976" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="1285.0" y="976" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="957" x2="1340" y2="957" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="985" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1004" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1004" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="1285.0" y="1004" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="985" x2="1340" y2="985" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1032" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1032" font-size="13.5" text-anchor="middle" fill="#333333">qty_change</text>
+<text x="1285.0" y="1032" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1013" x2="1340" y2="1013" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1060" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1060" font-size="13.5" text-anchor="middle" fill="#333333">reason</text>
+<text x="1285.0" y="1060" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="1041" x2="1340" y2="1041" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1088" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1088" font-size="13.5" text-anchor="middle" fill="#333333">notes</text>
+<text x="1285.0" y="1088" font-size="13.5" text-anchor="middle" fill="#333333">TEXT</text>
+<line x1="1034" y1="1069" x2="1340" y2="1069" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1116" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1116" font-size="13.5" text-anchor="middle" fill="#333333">status</text>
+<text x="1285.0" y="1116" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1034" y1="1097" x2="1340" y2="1097" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1125" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1144" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1144" font-size="13.5" text-anchor="middle" fill="#333333">requested_by</text>
+<text x="1285.0" y="1144" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1125" x2="1340" y2="1125" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="1153" width="196" height="28" fill="#c9dcf6"/>
+<text x="1062.0" y="1172" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1160.0" y="1172" font-size="13.5" text-anchor="middle" fill="#333333">reviewed_by</text>
+<text x="1285.0" y="1172" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1034" y1="1153" x2="1340" y2="1153" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1200" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1200" font-size="13.5" text-anchor="middle" fill="#333333">requested_at</text>
+<text x="1285.0" y="1200" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1181" x2="1340" y2="1181" stroke="#333333" stroke-width="1.6"/>
+<text x="1062.0" y="1228" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1160.0" y="1228" font-size="13.5" text-anchor="middle" fill="#333333">reviewed_at</text>
+<text x="1285.0" y="1228" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1034" y1="1209" x2="1340" y2="1209" stroke="#333333" stroke-width="1.6"/>
+<line x1="1090" y1="929" x2="1090" y2="1237" stroke="#333333" stroke-width="1.6"/>
+<line x1="1230" y1="929" x2="1230" y2="1237" stroke="#333333" stroke-width="1.6"/>
+<rect x="1034" y="901" width="306" height="336" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1490" y="1798" width="306" height="140" fill="#fff"/><rect x="1490" y="1798" width="306" height="28" fill="#f1f1f3"/>
+<text x="1643.0" y="1817" font-size="14.5" text-anchor="middle" fill="#333333">transfer_items</text>
+<rect x="1490" y="1826" width="196" height="28" fill="#fff59d"/>
+<text x="1518.0" y="1845" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1616.0" y="1845" font-size="13.5" text-anchor="middle" fill="#333333">transfer_id</text>
+<text x="1741.0" y="1845" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1826" x2="1796" y2="1826" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="1854" width="196" height="28" fill="#fff59d"/>
+<text x="1518.0" y="1873" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1616.0" y="1873" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="1741.0" y="1873" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1854" x2="1796" y2="1854" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="1901" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="1901" font-size="13.5" text-anchor="middle" fill="#333333">qty_requested</text>
+<text x="1741.0" y="1901" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1882" x2="1796" y2="1882" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="1929" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="1929" font-size="13.5" text-anchor="middle" fill="#333333">qty_sent</text>
+<text x="1741.0" y="1929" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1910" x2="1796" y2="1910" stroke="#333333" stroke-width="1.6"/>
+<line x1="1546" y1="1826" x2="1546" y2="1938" stroke="#333333" stroke-width="1.6"/>
+<line x1="1686" y1="1826" x2="1686" y2="1938" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="1798" width="306" height="140" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1490" y="795" width="306" height="336" fill="#fff"/><rect x="1490" y="795" width="306" height="28" fill="#f1f1f3"/>
+<text x="1643.0" y="814" font-size="14.5" text-anchor="middle" fill="#333333">stock_movements</text>
+<rect x="1490" y="823" width="196" height="28" fill="#fff59d"/>
+<text x="1518.0" y="842" font-size="13.5" text-anchor="middle" fill="#333333">PK</text>
+<text x="1616.0" y="842" font-size="13.5" text-anchor="middle" fill="#333333">movement_id</text>
+<text x="1741.0" y="842" font-size="13.5" text-anchor="middle" fill="#333333">BIGINT</text>
+<line x1="1490" y1="823" x2="1796" y2="823" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="851" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="870" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="870" font-size="13.5" text-anchor="middle" fill="#333333">warehouse_id</text>
+<text x="1741.0" y="870" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="851" x2="1796" y2="851" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="879" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="898" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="898" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="1741.0" y="898" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="879" x2="1796" y2="879" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="926" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="926" font-size="13.5" text-anchor="middle" fill="#333333">movement_type</text>
+<text x="1741.0" y="926" font-size="13.5" text-anchor="middle" fill="#333333">ENUM</text>
+<line x1="1490" y1="907" x2="1796" y2="907" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="954" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="954" font-size="13.5" text-anchor="middle" fill="#333333">qty_change</text>
+<text x="1741.0" y="954" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="935" x2="1796" y2="935" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="982" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="982" font-size="13.5" text-anchor="middle" fill="#333333">balance_after</text>
+<text x="1741.0" y="982" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="963" x2="1796" y2="963" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="991" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="1010" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="1010" font-size="13.5" text-anchor="middle" fill="#333333">po_id</text>
+<text x="1741.0" y="1010" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="991" x2="1796" y2="991" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="1019" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="1038" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="1038" font-size="13.5" text-anchor="middle" fill="#333333">transfer_id</text>
+<text x="1741.0" y="1038" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1019" x2="1796" y2="1019" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="1047" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="1066" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="1066" font-size="13.5" text-anchor="middle" fill="#333333">adjustment_id</text>
+<text x="1741.0" y="1066" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1047" x2="1796" y2="1047" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="1075" width="196" height="28" fill="#c9dcf6"/>
+<text x="1518.0" y="1094" font-size="13.5" text-anchor="middle" fill="#333333">FK</text>
+<text x="1616.0" y="1094" font-size="13.5" text-anchor="middle" fill="#333333">performed_by</text>
+<text x="1741.0" y="1094" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="1075" x2="1796" y2="1075" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="1122" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="1122" font-size="13.5" text-anchor="middle" fill="#333333">created_at</text>
+<text x="1741.0" y="1122" font-size="13.5" text-anchor="middle" fill="#333333">TIMESTAMP</text>
+<line x1="1490" y1="1103" x2="1796" y2="1103" stroke="#333333" stroke-width="1.6"/>
+<line x1="1546" y1="823" x2="1546" y2="1131" stroke="#333333" stroke-width="1.6"/>
+<line x1="1686" y1="823" x2="1686" y2="1131" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="795" width="306" height="336" fill="none" stroke="#333333" stroke-width="2.8"/>
+<rect x="1490" y="302" width="306" height="168" fill="#fff"/><rect x="1490" y="302" width="306" height="28" fill="#f1f1f3"/>
+<text x="1643.0" y="321" font-size="14.5" text-anchor="middle" fill="#333333">purchase_order_items</text>
+<rect x="1490" y="330" width="196" height="28" fill="#fff59d"/>
+<text x="1518.0" y="349" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1616.0" y="349" font-size="13.5" text-anchor="middle" fill="#333333">po_id</text>
+<text x="1741.0" y="349" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="330" x2="1796" y2="330" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="358" width="196" height="28" fill="#fff59d"/>
+<text x="1518.0" y="377" font-size="13.5" text-anchor="middle" fill="#333333">PK, FK</text>
+<text x="1616.0" y="377" font-size="13.5" text-anchor="middle" fill="#333333">item_id</text>
+<text x="1741.0" y="377" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="358" x2="1796" y2="358" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="405" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="405" font-size="13.5" text-anchor="middle" fill="#333333">qty_ordered</text>
+<text x="1741.0" y="405" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="386" x2="1796" y2="386" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="433" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="433" font-size="13.5" text-anchor="middle" fill="#333333">qty_received</text>
+<text x="1741.0" y="433" font-size="13.5" text-anchor="middle" fill="#333333">INT</text>
+<line x1="1490" y1="414" x2="1796" y2="414" stroke="#333333" stroke-width="1.6"/>
+<text x="1518.0" y="461" font-size="13.5" text-anchor="middle" fill="#333333"></text>
+<text x="1616.0" y="461" font-size="13.5" text-anchor="middle" fill="#333333">unit_cost</text>
+<text x="1741.0" y="461" font-size="13.5" text-anchor="middle" fill="#333333">DECIMAL(10,2)</text>
+<line x1="1490" y1="442" x2="1796" y2="442" stroke="#333333" stroke-width="1.6"/>
+<line x1="1546" y1="330" x2="1546" y2="470" stroke="#333333" stroke-width="1.6"/>
+<line x1="1686" y1="330" x2="1686" y2="470" stroke="#333333" stroke-width="1.6"/>
+<rect x="1490" y="302" width="306" height="168" fill="none" stroke="#333333" stroke-width="2.8"/>
+</svg>
