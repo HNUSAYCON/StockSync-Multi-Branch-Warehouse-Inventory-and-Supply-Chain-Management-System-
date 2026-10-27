@@ -87,12 +87,18 @@ supabase/
     003_functions.sql       permission helpers + PO / transfer / adjustment workflows
     004_views_reports.sql   dashboard & low-stock views, report functions, search
     005_security.sql        grants (RBAC) + row-level security policies
+    008_admin_accounts.sql  admin-only functions to create accounts and reset passwords
   seed/
     006_seed_data.sql       sample warehouses, categories, suppliers, items, opening stock
     007_demo_accounts.sql   links team logins to roles and warehouses
 tests/
   test_scenarios.sql        32 automated checks (runs inside a rollback)
   concurrency_demo.sql      two-tab row-locking demo
+  benchmark.sql             index benchmark on bulk data (safe: uses a temporary schema)
+docs/
+  StockSync_ERD.png / .svg  entity-relationship diagram
+  data_dictionary.md        every table, column, key, and constraint
+  benchmark_report.md       query benchmark, execution plans, concurrency stress test
 frontend/
   index.html                login page (sends each role to its own page)
   admin.html / manager.html / staff.html   role dashboards
@@ -110,7 +116,7 @@ Run the frontend with VS Code's **Live Server** (right-click `frontend/index.htm
 ## Setup
 
 1. **Create the project.** Go to [supabase.com](https://supabase.com) → New project. Save the database password somewhere safe.
-2. **Run the migrations in order.** Open **SQL Editor** → New query, paste each file, click **Run**: `001` → `002` → `003` → `004` → `005` → `006`. Each should end with "Success. No rows returned."
+2. **Run the migrations in order.** Open **SQL Editor** → New query, paste each file, click **Run**: `001` → `002` → `003` → `004` → `005` → `006` → `008`. Each should end with "Success. No rows returned."
 3. **Turn off public sign-ups.** Go to **Authentication → Sign In / Providers** and disable "Allow new users to sign up". Only admins create accounts.
 4. **Create the logins.** Go to **Authentication → Users → Add user → Create new user**. Tick *Auto Confirm User* and create:
    - `saycon.karl_christian@hnu.edu.ph` (administrator)
@@ -122,7 +128,7 @@ Run the frontend with VS Code's **Live Server** (right-click `frontend/index.htm
 6. **Run `tests/test_scenarios.sql`.** You should see `32 / 32 passed`. Nothing is saved; it rolls back.
 7. **Connect the frontend.** Copy the Project URL and the **anon public** key from **Project Settings → API** into `frontend/js/config.js`.
 
-> New accounts start **inactive** with role `staff`. An admin activates them, sets the role, creates an employee profile, and assigns a warehouse. Everyone who performs work needs an employee profile, admins included.
+> After setup, administrators create new accounts from the website: **Users & employees → Create account** sets up the login, role, employee profile, and warehouse in one step. Accounts added directly in Supabase Authentication instead start **inactive** with role `staff` until an admin activates them, creates an employee profile, and assigns a warehouse.
 
 ## How the main pieces work
 

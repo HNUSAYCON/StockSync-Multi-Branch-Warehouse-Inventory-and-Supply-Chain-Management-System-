@@ -198,3 +198,12 @@ export const assignEmployee = (employeeId, warehouseId, assignedRole) =>
 
 export const endAssignment = (assignmentId) =>
   run(supabase.from('employee_assignments').update({ status: 'ended' }).eq('assignment_id', assignmentId));
+
+// Admin: create a complete account (login + role + profile + warehouse) in one step
+export const createAccount = ({ email, password, first_name, last_name, role, warehouse_id = null, contact_no = null }) =>
+  run(supabase.rpc('admin_create_account', {
+    p_email: email, p_password: password, p_first_name: first_name, p_last_name: last_name,
+    p_role: role, p_warehouse_id: warehouse_id, p_contact_no: contact_no }));
+
+export const setPassword = (userId, password) =>
+  run(supabase.rpc('admin_set_password', { p_user_id: userId, p_password: password }));
