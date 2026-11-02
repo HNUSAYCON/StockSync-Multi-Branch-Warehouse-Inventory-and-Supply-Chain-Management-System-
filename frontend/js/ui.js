@@ -22,6 +22,26 @@ export function isoDate(d = new Date()) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+// ------------------------------------------------------------------ Overdue purchase orders
+// A PO is overdue when it is still open (nothing or only part delivered)
+// and its expected delivery date is before today.
+export const OPEN_PO_STATUSES = ['ordered', 'partially_received'];
+
+export function isOverdue(po) {
+  return OPEN_PO_STATUSES.includes(po.status) && !!po.expected_at && po.expected_at < isoDate();
+}
+
+// How many whole days late (0 if not overdue)
+export function daysLate(po) {
+  if (!isOverdue(po)) return 0;
+  const expected = new Date(po.expected_at + 'T00:00:00');
+  const today = new Date(isoDate() + 'T00:00:00');
+  return Math.round((today - expected) / 86400000);
+}
+
+export const overdueBadge = (po) =>
+  `<span class="badge rounded-pill text-bg-danger"><i class="bi bi-alarm"></i> overdue · ${daysLate(po)} day${daysLate(po) === 1 ? '' : 's'} late</span>`;
+
 const BADGE_COLORS = {
   // purchase orders
   ordered: 'primary', partially_received: 'warning', received: 'success', cancelled: 'secondary',
