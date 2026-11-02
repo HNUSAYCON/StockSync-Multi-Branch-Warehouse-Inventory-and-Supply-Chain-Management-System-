@@ -93,6 +93,17 @@ h1, h2, h3, h4, .brand-mark, .stat-value, .hero-title {
 .sidebar .nav-link { color: #C9D6EE; border-radius: 6px; padding: 0.6rem 0.8rem; margin-bottom: 2px; font-weight: 500; }
 .sidebar .nav-link:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
 .sidebar .nav-link.active { background: var(--rack); color: #fff; box-shadow: inset 4px 0 0 var(--tape); }
+
+/* Red number badge in the side menu ("3 things waiting for you") */
+.sidebar .nav-link { display: flex; align-items: center; }
+.menu-badge {
+  margin-left: auto; min-width: 1.4rem; height: 1.4rem; padding: 0 0.4rem;
+  border-radius: 999px; background: #DC3545; color: #fff;
+  font-size: 0.75rem; font-weight: 700; line-height: 1.4rem; text-align: center;
+  box-shadow: 0 0 0 2px var(--steel);
+  animation: badge-pop 0.25s ease-out;
+}
+@keyframes badge-pop { from { transform: scale(0.4); } to { transform: scale(1); } }
 .sidebar .assignments { border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 0.9rem; margin-top: 0.75rem; }
 .sidebar .assignments .text-muted { color: #8FA3C6 !important; }
 .sidebar .assignments-title { color: #8FA3C6; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }

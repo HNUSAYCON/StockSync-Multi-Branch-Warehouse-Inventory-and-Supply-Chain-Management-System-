@@ -106,6 +106,23 @@ export function getAdjustments(status = null) {
   return run(q);
 }
 
+// Small, fast queries for the red menu badges.
+// Only the columns needed for counting; RLS still limits rows to what this user may see.
+export async function getAlertData() {
+  const [transfers, adjustments, orders] = await Promise.all([
+    run(supabase.from('stock_transfers')
+      .select('transfer_id, status, from_warehouse_id, to_warehouse_id, requested_by')
+      .in('status', ['requested', 'approved', 'in_transit'])),
+    run(supabase.from('stock_adjustments')
+      .select('adjustment_id, warehouse_id, requested_by')
+      .eq('status', 'pending')),
+    run(supabase.from('purchase_orders')
+      .select('po_id, warehouse_id, status, expected_at')
+      .in('status', ['ordered', 'partially_received'])),
+  ]);
+  return { transfers, adjustments, orders };
+}
+
 export function getAuditLogs(tableName = null, limit = 200) {
   let q = supabase.from('audit_logs').select('*, users(email)')
     .order('log_id', { ascending: false }).limit(limit);
