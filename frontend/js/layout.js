@@ -4,8 +4,8 @@
 // 2. Loads who they are and which warehouses they are assigned to (ctx)
 // 3. Draws the top bar + side menu and shows the chosen section
 // =====================================================================
-import { getMyProfile, getMyEmployee, getWarehouses, getItems, getSuppliers, logout } from './api.js';
-import { esc, badge, spinner, friendlyError, personName } from './ui.js';
+import { getMyProfile, getMyEmployee, getWarehouses, getItems, getSuppliers, getAlertData, logout } from './api.js';
+import { esc, badge, spinner, friendlyError, personName, isOverdue } from './ui.js';
 
 export async function initPage({ allowedRoles, title, sections }) {
   const app = document.getElementById('app');
@@ -77,7 +77,8 @@ export async function initPage({ allowedRoles, title, sections }) {
         <div class="offcanvas-body p-0 d-block">
           <nav class="nav flex-column p-2" id="menu">
             ${sections.map((s) => `<a class="nav-link" href="#${s.id}" data-section="${s.id}">
-              <i class="bi bi-${s.icon} me-2"></i>${esc(s.label)}</a>`).join('')}
+              <i class="bi bi-${s.icon} me-2"></i>${esc(s.label)}
+              <span class="menu-badge d-none" data-badge="${s.id}"></span></a>`).join('')}
           </nav>
           ${!isAdmin ? `<div class="assignments px-3 pb-3">
             <div class="assignments-title">My warehouses</div>
@@ -124,8 +125,58 @@ export async function initPage({ allowedRoles, title, sections }) {
       body.innerHTML = `<div class="alert alert-danger">${esc(friendlyError(err.message))}</div>`;
     }
     bootstrap.Offcanvas.getInstance(document.getElementById('sidebar'))?.hide();
+    updateBadges(ctx); // re-count after every page load, refresh, or action
   }
 
   window.addEventListener('hashchange', () => show(location.hash.slice(1)));
   show(location.hash.slice(1));
+  // also re-count every 60 seconds, so new requests from other users show up
+  setInterval(() => updateBadges(ctx), 60000);
+}
+
+// ---------- Red number badges in the side menu
+// Each number = "things waiting for YOU to act on" in that section.
+export function countAlerts(ctx, { transfers, adjustments, orders }) {
+  const me = ctx.employee?.employee_id;
+  const mine = (w) => ctx.myWarehouses.some((m) => m.warehouse_id === w);
+  const overdue = orders.filter(isOverdue);
+
+  if (ctx.isAdmin) {
+    return {
+      transfers: transfers.filter((t) => t.status === 'requested').length, // waiting for approval
+      adjustments: adjustments.length,                                      // waiting for review
+      orders: overdue.length,                                               // late deliveries
+    };
+  }
+  // manager and staff: transfers to SEND (approved, from my warehouse) or RECEIVE (in transit, to my warehouse)
+  const transferCount = transfers.filter((t) =>
+    (t.status === 'approved' && mine(t.from_warehouse_id)) ||
+    (t.status === 'in_transit' && mine(t.to_warehouse_id))).length;
+
+  if (ctx.role === 'manager') {
+    return {
+      transfers: transferCount,
+      adjustments: adjustments.filter((a) => ctx.canManage(a.warehouse_id) && a.requested_by !== me).length,
+      orders: overdue.filter((o) => mine(o.warehouse_id)).length,
+    };
+  }
+  // staff: every open delivery is something they may need to receive
+  return {
+    transfers: transferCount,
+    orders: orders.filter((o) => mine(o.warehouse_id)).length,
+  };
+}
+
+async function updateBadges(ctx) {
+  let counts;
+  try {
+    counts = countAlerts(ctx, await getAlertData());
+  } catch {
+    return; // badges are a nice-to-have; never break the page over them
+  }
+  document.querySelectorAll('[data-badge]').forEach((el) => {
+    const n = counts[el.dataset.badge] ?? 0;
+    el.textContent = n > 99 ? '99+' : n;
+    el.classList.toggle('d-none', n === 0);
+  });
 }
