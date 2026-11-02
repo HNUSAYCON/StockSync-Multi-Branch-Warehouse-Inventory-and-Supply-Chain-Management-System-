@@ -2,11 +2,13 @@
 // (partial or full), managers cancel ones with nothing received yet.
 import { getPurchaseOrders, createPurchaseOrder, receivePurchaseOrder, cancelPurchaseOrder } from '../api.js';
 import { esc, num, money, table, badge, dateTime, dateOnly, personName, isoDate,
-         openForm, showInfo, toast, runAction, actionButton } from '../ui.js';
+         openForm, showInfo, toast, runAction, actionButton,
+         OPEN_PO_STATUSES, isOverdue, overdueBadge } from '../ui.js';
 
-const OPEN = ['ordered', 'partially_received'];
+const OPEN = OPEN_PO_STATUSES;
 const FILTERS = [
   { key: 'open', label: 'Open', statuses: OPEN },
+  { key: 'overdue', label: 'Overdue', statuses: OPEN, overdueOnly: true },
   { key: 'received', label: 'Received', statuses: ['received'] },
   { key: 'cancelled', label: 'Cancelled', statuses: ['cancelled'] },
   { key: 'all', label: 'All', statuses: null },
@@ -15,7 +17,13 @@ const state = { filter: 'open' };
 
 export async function renderPurchaseOrders(el, ctx, actions) {
   const filter = FILTERS.find((f) => f.key === state.filter);
-  const orders = await getPurchaseOrders(filter.statuses);
+  let orders = await getPurchaseOrders(filter.statuses);
+  if (filter.overdueOnly) {
+    // most late first
+    orders = orders.filter(isOverdue).sort((a, b) => a.expected_at.localeCompare(b.expected_at));
+  }
+  const overdueCount = filter.statuses === OPEN || filter.statuses === null
+    ? orders.filter(isOverdue).length : 0;
 
   if (ctx.managedWarehouses.length) {
     actions.insertAdjacentHTML('afterbegin',
@@ -25,8 +33,11 @@ export async function renderPurchaseOrders(el, ctx, actions) {
 
   el.innerHTML = `
     <div class="toolbar">
-      ${FILTERS.map((f) => `<button class="btn btn-sm ${state.filter === f.key ? 'btn-dark' : 'btn-outline-secondary'}" data-filter="${f.key}">${f.label}</button>`).join('')}
+      ${FILTERS.map((f) => `<button class="btn btn-sm ${state.filter === f.key ? 'btn-dark' : f.overdueOnly ? 'btn-outline-danger' : 'btn-outline-secondary'}" data-filter="${f.key}">${f.overdueOnly ? '<i class="bi bi-alarm"></i> ' : ''}${f.label}</button>`).join('')}
     </div>
+    ${overdueCount && !filter.overdueOnly ? `<div class="alert alert-danger py-2 small d-flex align-items-center gap-2">
+      <i class="bi bi-alarm"></i> ${num(overdueCount)} purchase order${overdueCount === 1 ? ' is' : 's are'} past the expected delivery date.
+      <a href="#" class="alert-link ms-auto" data-filter="overdue">Show only overdue</a></div>` : ''}
     ${table([
       { label: 'PO #',      render: (o) => `<span class="fw-semibold">PO-${o.po_id}</span>` },
       { label: 'Supplier',  render: (o) => esc(o.suppliers?.name) },
@@ -34,8 +45,9 @@ export async function renderPurchaseOrders(el, ctx, actions) {
       { label: 'Items',     render: (o) => progress(o.purchase_order_items) },
       { label: 'Value',     class: 'text-end', render: (o) => money(poValue(o)) },
       { label: 'Ordered',   render: (o) => `${dateTime(o.ordered_at)}<div class="small text-muted">by ${esc(personName(o.creator))}</div>` },
-      { label: 'Expected',  render: (o) => dateOnly(o.expected_at) },
-      { label: 'Status',    render: (o) => badge(o.status) },
+      { label: 'Expected',  render: (o) => isOverdue(o)
+          ? `<span class="text-danger fw-semibold">${dateOnly(o.expected_at)}</span>` : dateOnly(o.expected_at) },
+      { label: 'Status',    render: (o) => badge(o.status) + (isOverdue(o) ? `<div class="mt-1">${overdueBadge(o)}</div>` : '') },
       { label: '',          class: 'text-end text-nowrap', render: (o) =>
           actionButton('details', o.po_id, '<i class="bi bi-eye"></i>', 'light border', 'title="Details"') + ' ' +
           (OPEN.includes(o.status) && ctx.hasAccess(o.warehouse_id)
@@ -44,7 +56,7 @@ export async function renderPurchaseOrders(el, ctx, actions) {
             ? actionButton('cancel', o.po_id, 'Cancel', 'outline-danger') : '') },
     ], orders, 'No purchase orders here.')}`;
 
-  el.querySelectorAll('[data-filter]').forEach((b) => (b.onclick = () => { state.filter = b.dataset.filter; ctx.refresh(); }));
+  el.querySelectorAll('[data-filter]').forEach((b) => (b.onclick = (e) => { e.preventDefault(); state.filter = b.dataset.filter; ctx.refresh(); }));
 
   el.onclick = async (e) => {
     const btn = e.target.closest('[data-action]');
