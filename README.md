@@ -28,6 +28,8 @@ StockSync centralizes inventory for all warehouses in one cloud database. Every 
 - Stock adjustments for damaged, lost, or recounted items
 - Automatic stock movement history (ledger) for every item
 - Low-stock alerts based on reorder levels
+- Overdue purchase order alerts (open orders past their expected delivery date)
+- Red notification badges in the side menu showing tasks waiting for each user
 - Search and filter items, orders, and transfers
 - Inventory, movement, and purchase reports
 - Audit trail of all data changes
@@ -43,13 +45,15 @@ StockSync centralizes inventory for all warehouses in one cloud database. Every 
 - View stock and reports across all warehouses
 - Approve stock transfers between warehouses
 - View the system audit logs
+- See red menu badges for transfers waiting for approval, pending adjustments, and overdue purchase orders
 
 ### Warehouse Manager
 - View and manage stock only in their assigned warehouse(s)
 - Create purchase orders for their warehouse
 - Request stock transfers to and from other warehouses
 - Approve stock adjustments
-- View low-stock alerts
+- View low-stock alerts and overdue purchase orders
+- See red menu badges for transfers to send or receive, adjustments to review, and overdue orders
 - Generate reports for their warehouse
 
 ### Warehouse Staff (Stock Clerk)
@@ -58,6 +62,7 @@ StockSync centralizes inventory for all warehouses in one cloud database. Every 
 - Send and receive stock transfers
 - Record stock adjustments for manager approval
 - View their own transaction history
+- See red menu badges for deliveries to receive and transfers to send or receive
 
 ## Technologies used
 
@@ -95,6 +100,7 @@ tests/
   test_scenarios.sql        32 automated checks (runs inside a rollback)
   concurrency_demo.sql      two-tab row-locking demo
   benchmark.sql             index benchmark on bulk data (safe: uses a temporary schema)
+  overdue_demo.sql          makes a purchase order overdue for the demo
 docs/
   StockSync_ERD.png / .svg  entity-relationship diagram
   data_dictionary.md        every table, column, key, and constraint
@@ -145,6 +151,19 @@ The `CHECK (quantity_on_hand >= 0)` constraint is a second safety net. A guard t
 **Every function is one transaction.** If any step fails, everything in that call is undone. For example, a rejected adjustment approval leaves the request `pending`.
 
 **Audit trail.** `audit_row_change()` logs every INSERT/UPDATE/DELETE on 12 tables with before/after JSON and the user who made it. `audit_logs` and `stock_movements` are append-only.
+
+**Menu badges and overdue purchase orders.** Both are frontend-only and need no extra SQL.
+
+- A purchase order is **overdue** when it is still `ordered` or `partially_received` and its `expected_at` date is before today. It shows a red "overdue · N days late" label, an **Overdue** filter on the Purchase orders page, and an overdue table on the dashboard.
+- The **red numbers** in the side menu count what is waiting for the logged-in user. `layout.js` recounts them after every page load or action, and again every 60 seconds. Row-level security already limits the rows each user can read, so everyone only counts their own warehouses.
+
+| Role | Transfers | Adjustments | Purchase orders |
+|---|---|---|---|
+| Administrator | waiting for approval | pending review | overdue |
+| Manager | approved to send, or in transit to receive | pending, from other people | overdue in their warehouses |
+| Staff | approved to send, or in transit to receive | (none) | open deliveries to receive |
+
+**Demo: show an overdue PO.** The website rejects past expected dates, so create a PO with a future date, then run `tests/overdue_demo.sql` in the SQL Editor. Change the PO number in it, run the `UPDATE`, and refresh the site. The file also has an undo line.
 
 ## Who can do what
 
